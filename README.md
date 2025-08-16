@@ -1,0 +1,1 @@
+App includes encoding, decoding and hashing.

@@ -5,6 +5,9 @@ using System.Text;
 using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
+using System.Threading.Tasks;
 
 namespace EncodePlus
 {
@@ -97,10 +100,22 @@ namespace EncodePlus
             TextBoxOutput.Text = operations[ComboBox.SelectedItem.ToString()].Encode(TextBoxInput.Text);
         }
 
-        private void DecodeButton_Click(object sender, RoutedEventArgs e)
+        private async void DecodeButton_Click(object sender, RoutedEventArgs e)
         {
             Codec codec = operations[ComboBox.SelectedItem.ToString()];
-            TextBoxOutput.Text = codec != null ? operations[ComboBox.SelectedItem.ToString()].Decode(TextBoxInput.Text) : "Can't decode hash";
+            try
+            {
+                TextBoxOutput.Text = codec != null ? operations[ComboBox.SelectedItem.ToString()].Decode(TextBoxInput.Text) : "Can't decode hash";
+            }
+            catch
+            {
+                TextBoxOutput.Foreground = new SolidColorBrush(Colors.Red);
+                TextBoxOutput.Resources["TextControlForegroundPointerOver"] = new SolidColorBrush(Colors.Red);
+                TextBoxOutput.Text = "Error";
+                await Task.Delay(1000);
+                TextBoxOutput.Foreground = new SolidColorBrush(Colors.White);
+                TextBoxOutput.Resources["TextControlForegroundPointerOver"] = new SolidColorBrush(Colors.White);
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

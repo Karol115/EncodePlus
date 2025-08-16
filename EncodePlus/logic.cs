@@ -118,16 +118,23 @@ namespace EncodePlus
             }
             else
             {
-                string hexStr = input.Replace(" ", "");
-
-                byte[] bytes = new byte[hexStr.Length / 2];
-
-                for (int i = 0; i < hexStr.Length; i += 2)
+                try
                 {
-                    bytes[i / 2] = Convert.ToByte(hexStr.Substring(i, 2), 16);
-                }
+                    string hexStr = input.Replace(" ", "");
 
-                return Encoding.UTF8.GetString(bytes);
+                    byte[] bytes = new byte[hexStr.Length / 2];
+
+                    for (int i = 0; i < hexStr.Length; i += 2)
+                    {
+                        bytes[i / 2] = Convert.ToByte(hexStr.Substring(i, 2), 16);
+                    }
+
+                    return Encoding.UTF8.GetString(bytes);
+                }
+                catch
+                {
+                    return "Error";
+                }
             }
         }
     }

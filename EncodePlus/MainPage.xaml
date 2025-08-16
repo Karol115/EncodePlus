@@ -20,11 +20,11 @@
                         <Setter Property="AcceptsReturn" Value="True"/>
                     </Style>
                 </StackPanel.Resources>
-
+                
                 <TextBox x:Name="TextBoxInput" PlaceholderText="Input text" Style="{StaticResource TextBox}"/>
                 <TextBox x:Name="TextBoxOutput" PlaceholderText="Output text"  Style="{StaticResource TextBox}"/>
                 <ComboBox x:Name="ComboBox" HorizontalAlignment="Stretch" SelectedIndex="0" Style="{StaticResource Child}" SelectionChanged="ComboBox_SelectionChanged"/>
-
+                
                 <StackPanel HorizontalAlignment="Stretch" Margin="0,10,0,0" VerticalAlignment="Stretch">
                     <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" >
                         <Grid.ColumnDefinitions>

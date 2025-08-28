@@ -8,6 +8,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace EncodePlus
 {
@@ -82,9 +83,16 @@ namespace EncodePlus
             }},
         };
 
+        private Stopwatch stopwatch;
+
         public MainPage()
         {
+            stopwatch = Stopwatch.StartNew();
             this.InitializeComponent();
+            stopwatch.Stop();
+
+            AboutPage.addLoadTime(stopwatch.ElapsedMilliseconds.ToString());
+
             AboutPage.addCoCreator("Co-designer: Kierownik223");
             ComboBox.ItemsSource = operations.Keys;
         }

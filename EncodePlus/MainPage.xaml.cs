@@ -43,7 +43,7 @@ namespace EncodePlus
 
             AboutPage.addLoadTime(_launchStopwatch.ElapsedMilliseconds.ToString());
 
-            AboutPage.addCoCreator("Co-designer: Kierownik223");
+            //AboutPage.addCoCreator("Co-designer: Kierownik223");
 
             ComboBox.ItemsSource = operations.Keys;
             for(int i = 1; i <= Environment.ProcessorCount; i++)

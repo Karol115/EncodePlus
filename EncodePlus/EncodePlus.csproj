@@ -213,6 +213,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AAA-DLL\AboutPage\AboutPage\bin\Release\AboutPage.dll</HintPath>
     </Reference>
+    <Reference Include="UpdaterUWP v1">
+      <HintPath>..\..\AAA-DLL\Updater v1\UpdaterUWP v1\UpdaterUWP v1\bin\Release\UpdaterUWP v1.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Karol115.pfx" />

@@ -10,10 +10,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
+using Microsoft.UI.Xaml.Controls;
 
 using static EncodePlus.Operations;
-using Microsoft.UI.Xaml.Controls;
-using System.Reflection;
 
 namespace EncodePlus
 {

@@ -18,7 +18,6 @@ namespace EncodePlus
 {
     public sealed partial class MainPage : Page
     {
-        private Karol115.UpdaterUWP.UpdateResult _updaterResult;
         private Karol115.UpdaterUWP _updater;
 
         public static string EncodingVariant { get; set; }
@@ -71,7 +70,7 @@ namespace EncodePlus
             {
                  //AboutPage.UpdateStatusText("Checking...");
 
-                _updaterResult = await _updater.CheckForUpdatesAsync(true);
+                await _updater.CheckForUpdatesAsync(true);
 
                 //AboutPage.UpdateStatusText($"Status: {_updaterResult.Status}");
                 AboutPage.UpdateStatusText("", new SolidColorBrush(Colors.White));

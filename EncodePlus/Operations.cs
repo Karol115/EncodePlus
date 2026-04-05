@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 
 namespace EncodePlus
 {
@@ -19,6 +20,7 @@ namespace EncodePlus
             public OperationType Type { get; set; }
             public Func<string, string> Encode { get; set; }
             public Func<string, string> Decode { get; set; }
+            public Func<string, CancellationToken, string> BruteForce { get; set; }
         }
 
         public static Dictionary<string, Codec> operations = new Dictionary<string, Codec>
@@ -80,18 +82,22 @@ namespace EncodePlus
             { "SHA-1", new Codec {
                 Type = OperationType.Hash,
                 Encode = input => Logic.HashInput(SHA1.Create(), input),
+                BruteForce = (input, token) => BruteForce.BruteforceHash(SHA1.Create(), input, token),
             }},
             { "SHA-256", new Codec {
                 Type = OperationType.Hash,
                 Encode = input => Logic.HashInput(SHA256.Create(), input),
+                BruteForce = (input, token) => BruteForce.BruteforceHash(SHA256.Create(), input, token),
             }},
             { "SHA-512", new Codec {
                 Type = OperationType.Hash,
                 Encode = input => Logic.HashInput(SHA512.Create(), input),
+                 BruteForce = (input, token) => BruteForce.BruteforceHash(SHA512.Create(), input, token),
             }},
             { "MD5", new Codec {
                 Type = OperationType.Hash,
                 Encode = input => Logic.HashInput(MD5.Create(), input),
+                BruteForce = (input, token) => BruteForce.BruteforceHash(MD5.Create(), input, token),
             }},
         };
     }

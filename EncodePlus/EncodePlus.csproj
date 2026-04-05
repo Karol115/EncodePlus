@@ -209,16 +209,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AboutPage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <None Include="Karol115.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AboutPage, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AAA-DLL\AboutPage\AboutPage\bin\Release\AboutPage.dll</HintPath>
     </Reference>
-    <Reference Include="UpdaterUWP v1">
+    <Reference Include="UpdaterUWP v1, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AAA-DLL\Updater v1\UpdaterUWP v1\UpdaterUWP v1\bin\Release\UpdaterUWP v1.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Karol115.pfx" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -1,6 +1,5 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using System.Security.Cryptography;
 using System;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml.Media;
@@ -132,14 +131,7 @@ namespace EncodePlus
                 string result = await Task.Run(() => {
                     if(codec.Type == OperationType.Hash)
                     {
-                        switch (selectedKey)
-                        {
-                            case "SHA-1": return BruteForce.BruteforceHash(SHA1.Create(), input, _cts.Token);
-                            case "SHA-256": return BruteForce.BruteforceHash(SHA256.Create(), input, _cts.Token);
-                            case "SHA-512": return BruteForce.BruteforceHash(SHA512.Create(), input, _cts.Token);
-                            case "MD5": return BruteForce.BruteforceHash(MD5.Create(), input, _cts.Token);
-                            default: return "Not Supported";
-                        }
+                        return codec.BruteForce?.Invoke(input, _cts.Token);
                     }
                     else
                     {

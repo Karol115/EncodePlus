@@ -131,7 +131,7 @@
         </PivotItem>
 
         <PivotItem Header="About">
-            <local:AboutPage x:Name="AboutPage"/>
+            <local:AboutPage x:Name="AboutPage" AppId="13"/>
         </PivotItem>
     </Pivot>
 </Page>

@@ -131,7 +131,7 @@ namespace EncodePlus
                 string result = await Task.Run(() => {
                     if(codec.Type == OperationType.Hash)
                     {
-                        return codec.BruteForce?.Invoke(input, _cts.Token);
+                        return codec.BruteForce(input, _cts.Token);
                     }
                     else
                     {

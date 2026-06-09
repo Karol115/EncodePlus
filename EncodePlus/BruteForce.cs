@@ -21,7 +21,7 @@ namespace EncodePlus
             set => _totalAttempts = value;
         }
 
-         public static string BruteforceHash(HashAlgorithm hash, string targetHash, CancellationToken token)
+         public static string BruteforceHash(Func<HashAlgorithm> hashFactory, string targetHash, CancellationToken token)
          {
             string foundResult = null;
             _isFinished = false;
@@ -45,7 +45,7 @@ namespace EncodePlus
                     {
                         if (token.IsCancellationRequested) state.Stop();
 
-                        using (var threadHash = (HashAlgorithm)Activator.CreateInstance(hash.GetType())) // create separate instances
+                        using (var threadHash = hashFactory()) // create separate instances
                         {
                             string result = AttemptBruteForce(threadHash, targetBytes, len, (byte)firstChar, token);
 
